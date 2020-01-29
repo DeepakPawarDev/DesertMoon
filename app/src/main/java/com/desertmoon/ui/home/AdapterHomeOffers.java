@@ -33,6 +33,7 @@ public class AdapterHomeOffers extends SliderViewAdapter<AdapterHomeOffers.Slide
         switch (position) {
             case 0:
                 Glide.with(viewHolder.itemView)
+
                         .load(R.drawable.ic_realistic_food_vector_10)
                         .into(viewHolder.imageViewBackground);
                 break;
