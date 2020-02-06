@@ -15,6 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="#FFFFFF"
             android:background="?attr/colorPrimary"
             android:elevation="10dp"
             app:popupTheme="@style/AppTheme.PopupOverlay">
@@ -56,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:visibility="gone"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/primaryColor"
         app:srcCompat="@drawable/ic_call_black_24dp" />
