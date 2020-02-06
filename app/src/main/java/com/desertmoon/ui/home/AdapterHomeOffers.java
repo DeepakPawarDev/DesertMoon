@@ -34,23 +34,23 @@ public class AdapterHomeOffers extends SliderViewAdapter<AdapterHomeOffers.Slide
             case 0:
                 Glide.with(viewHolder.itemView)
 
-                        .load(R.drawable.ic_realistic_food_vector_10)
+                        .load(R.drawable.offer1)
                         .into(viewHolder.imageViewBackground);
                 break;
             case 1:
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.ic_realistic_food_vector_11)
+                        .load(R.drawable.offer2)
 
                         .into(viewHolder.imageViewBackground);
                 break;
             case 2:
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.ic_donut_bar_vintage_sign)
+                        .load(R.drawable.offer3)
                         .into(viewHolder.imageViewBackground);
                 break;
             default:
                 Glide.with(viewHolder.itemView)
-                        .load(R.drawable.four)
+                        .load(R.drawable.offer4)
                         .into(viewHolder.imageViewBackground);
                 break;
 

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.desertmoon.R;
 import com.desertmoon.common.Menus;
 import com.desertmoon.databinding.RowHomeMenuBinding;
@@ -79,6 +81,13 @@ public class AdapterHomeMenu extends RecyclerView.Adapter<AdapterHomeMenu.MyView
             imageView= view.findViewById(R.id.image);
             textViewMenu=view.findViewById(R.id.text_view_menu);
             textViewMenuDesc=view.findViewById(R.id.text_view_menu_details);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Navigation.findNavController(view).navigate(R.id.action_nav_home_to_fragOfferItemList);
+                }
+            });
         }
 
         public void setData(final Menus beneficiary) {
@@ -86,10 +95,15 @@ public class AdapterHomeMenu extends RecyclerView.Adapter<AdapterHomeMenu.MyView
 
             try {
 
+                Glide.with(context).load(context.getResources().getDrawable(beneficiary.getIntImageID()))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
 
-               imageView.setImageDrawable(context.getResources().getDrawable(beneficiary.getIntImageID()));
+                        .into(imageView);
+            //   imageView.setImageDrawable(context.getResources().getDrawable(beneficiary.getIntImageID()));
                 textViewMenu.setText(beneficiary.getStrTitle());
                 textViewMenuDesc.setText(beneficiary.getStrTitleDescription());
+
+
 
             } catch (Exception e) {
 

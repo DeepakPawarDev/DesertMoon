@@ -1,12 +1,9 @@
 package com.desertmoon.ui.home;
 
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -99,6 +96,31 @@ public class HomeFragment extends Fragment {
 
         menusArrayList.add(menus5);
 
+        menusArrayList.add(menus2);
+
+        menusArrayList.add(menus3);
+
+        menusArrayList.add(menus4);
+
+        menusArrayList.add(menus5);
+        menusArrayList.add(menus);
+        menusArrayList.add(menus1);
+
+        menusArrayList.add(menus2);
+
+        menusArrayList.add(menus3);
+
+        menusArrayList.add(menus4);
+
+        menusArrayList.add(menus5);
+
+        menusArrayList.add(menus2);
+
+        menusArrayList.add(menus3);
+
+        menusArrayList.add(menus4);
+
+        menusArrayList.add(menus5);
 
         AdapterHomeMenu adapterHomeMenu=new AdapterHomeMenu(getActivity(),menusArrayList);
         binding.setMyAdapter(adapterHomeMenu);

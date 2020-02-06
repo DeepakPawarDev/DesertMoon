@@ -1,4 +1,4 @@
-package com.desertmoon.ui;
+package com.desertmoon.ui.offerlist;
 
 import androidx.lifecycle.ViewModel;
 
