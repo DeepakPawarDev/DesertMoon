@@ -48,5 +48,14 @@
         android:id="@+id/fragOfferItemList"
         android:name="com.desertmoon.ui.offerlist.FragOfferItemList"
         android:label="frag_offer_item_list_fragment"
-        tools:layout="@layout/frag_offer_item_list_fragment" />
+        tools:layout="@layout/frag_offer_item_list_fragment" >
+        <action
+            android:id="@+id/action_fragOfferItemList_to_itemDescription"
+            app:destination="@id/itemDescription" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDescription"
+        android:name="com.desertmoon.ui.discription.ItemDescription"
+        android:label="item_description_fragment"
+        tools:layout="@layout/item_description_fragment" />
 </navigation>

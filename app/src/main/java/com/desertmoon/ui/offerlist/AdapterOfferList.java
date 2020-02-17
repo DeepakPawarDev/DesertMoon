@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -77,6 +78,13 @@ public class AdapterOfferList extends RecyclerView.Adapter<AdapterOfferList.MyVi
             imageView= view.findViewById(R.id.image);
             textViewMenu=view.findViewById(R.id.text_view_menu);
             textViewMenuDesc=view.findViewById(R.id.text_view_menu_details);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Navigation.findNavController(view).navigate(R.id.action_fragOfferItemList_to_itemDescription);
+                }
+            });
         }
 
         public void setData(final Menus beneficiary) {
@@ -91,6 +99,9 @@ public class AdapterOfferList extends RecyclerView.Adapter<AdapterOfferList.MyVi
                 //   imageView.setImageDrawable(context.getResources().getDrawable(beneficiary.getIntImageID()));
                 textViewMenu.setText(beneficiary.getStrTitle());
                 textViewMenuDesc.setText(beneficiary.getStrTitleDescription());
+
+
+
 
             } catch (Exception e) {
 
