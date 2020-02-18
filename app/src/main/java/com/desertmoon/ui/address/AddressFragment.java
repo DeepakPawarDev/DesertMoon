@@ -1,4 +1,4 @@
-package com.desertmoon.ui.slideshow;
+package com.desertmoon.ui.address;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.desertmoon.R;
 
-public class SlideshowFragment extends Fragment {
+public class AddressFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private AddressViewModel addressViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        addressViewModel =
+                ViewModelProviders.of(this).get(AddressViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_address, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        addressViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

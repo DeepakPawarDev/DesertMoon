@@ -17,15 +17,15 @@
 
     <fragment
         android:id="@+id/nav_orders"
-        android:name="com.desertmoon.ui.gallery.GalleryFragment"
+        android:name="com.desertmoon.ui.orders.OrdersFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_orders" />
 
     <fragment
         android:id="@+id/nav_address"
-        android:name="com.desertmoon.ui.slideshow.SlideshowFragment"
+        android:name="com.desertmoon.ui.address.AddressFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_address" />
 
     <fragment
         android:id="@+id/nav_cash_back"

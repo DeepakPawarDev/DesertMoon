@@ -1,16 +1,16 @@
-package com.desertmoon.ui.gallery;
+package com.desertmoon.ui.orders;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class OrdersViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public OrdersViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+      //  mText.setValue("This is gallery fragment");
     }
 
     public LiveData<String> getText() {
