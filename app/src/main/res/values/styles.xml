@@ -49,6 +49,7 @@
     </style>
 
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="itemTextColor">#000000</item>
         <item name="android:fontFamily">@font/open_sans_bold_italic</item>
     </style>
 
@@ -66,4 +67,6 @@
     <!-- <style  name="inputText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
          <item name="boxBackgroundColor">#FFFFFF</item>
      </style>-->
+
+
 </resources>

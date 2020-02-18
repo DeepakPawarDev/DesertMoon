@@ -14,7 +14,7 @@
 
 </resources>-->
 
-
+<!--
 <resources>
 <color name="primaryColor">#070a5e</color>
 <color name="primaryLightColor">#43318c</color>
@@ -28,7 +28,7 @@
 
 <color name="black_overlay">#66000000</color>
 
-</resources>
+</resources>-->
     <!--
 <resources>
     <color name="primaryColor">#1565c0</color>
@@ -43,3 +43,20 @@
     <color name="navigation_icon">#FF000000</color>
 
 </resources>-->
+    <!--?xml version="1.0" encoding="UTF-8"?-->
+
+
+<resources>
+<color name="primaryColor">#212121</color>
+<color name="primaryLightColor">#484848</color>
+<color name="primaryDarkColor">#000000</color>
+<color name="primaryTextColor">#ffffff</color>
+<color name="secondaryTextColor">#000000</color>
+<color name="white">#FFFFFF</color>
+<color name="gray_otp_tint_color">#A8FFFFFF</color>
+<color name="top_action_bar_title">#000000</color>
+<color name="navigation_icon">#FF000000</color>
+
+<color name="black_overlay">#66000000</color>
+
+</resources>

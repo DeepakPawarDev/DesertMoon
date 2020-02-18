@@ -6,4 +6,10 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/open_sans_reguler</item>
+        <item name="itemTextColor">#000000</item>
+    </style>
+
 </resources>
