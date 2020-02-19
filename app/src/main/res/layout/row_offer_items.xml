@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="cartItem"
+            type="com.desertmoon.ui.MainActivityCardViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -93,6 +96,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#DC151769"
                         android:fontFamily="@font/open_sans_reguler"
+                        android:onClick="@{() -> cartItem.addCartItem()}"
                         android:text="ADD"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"

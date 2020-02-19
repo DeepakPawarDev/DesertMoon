@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ import com.desertmoon.R;
 import com.desertmoon.common.Menus;
 import com.desertmoon.databinding.RowHomeMenuBinding;
 import com.desertmoon.databinding.RowOfferItemsBinding;
+import com.desertmoon.ui.MainActivityCardViewModel;
 
 import java.util.List;
 
@@ -31,13 +34,14 @@ public class AdapterOfferList extends RecyclerView.Adapter<AdapterOfferList.MyVi
     private List<Menus> listEditText;
     private LayoutInflater mInflater;
     RowOfferItemsBinding binding;
-
+MainActivityCardViewModel mainActivityCardViewModel;
     NavController navController;
 
     public AdapterOfferList(FragmentActivity context, List<Menus> listEditText) {
         this.context = context;
         this.listEditText = listEditText;
         this.mInflater = LayoutInflater.from(context);
+        mainActivityCardViewModel= ViewModelProviders.of(context).get(MainActivityCardViewModel.class);
 
 
     }
@@ -47,6 +51,8 @@ public class AdapterOfferList extends RecyclerView.Adapter<AdapterOfferList.MyVi
     public AdapterOfferList.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         binding = DataBindingUtil.inflate(mInflater, R.layout.row_offer_items, viewGroup, false);
         View view = binding.getRoot();
+        binding.setLifecycleOwner(context);
+        binding.setCartItem(mainActivityCardViewModel);
      AdapterOfferList.MyViewHolder holder = new AdapterOfferList.MyViewHolder(view);
 
         return holder;

@@ -2,11 +2,19 @@ package com.desertmoon;
 
 import android.os.Bundle;
 
+import com.desertmoon.databinding.ActivityMainBinding;
+import com.desertmoon.ui.BaseActivity;
+import com.desertmoon.ui.MainActivityCardViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,14 +29,28 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    ActivityMainBinding binding;
+
+    MainActivityCardViewModel mainActivityCardViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       // setContentView(R.layout.activity_main);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mainActivityCardViewModel = ViewModelProviders.of(this).get(MainActivityCardViewModel.class);
+        binding.setLifecycleOwner(this);
+        mainActivityCardViewModel.mutableLiveDataCardItem.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                showSnack();
+            }
+        });
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         setSupportActionBar(toolbar);
@@ -68,4 +90,20 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+    public void showSnack() {
+
+
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
+        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
+        layout.setPadding(0,0,0,0);
+        layout.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor));
+        View snackView = getLayoutInflater().inflate(R.layout.custom_snackbar, null);
+        layout.addView(snackView);
+        snackbar.show();
+
+    }
+
+
 }
