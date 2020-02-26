@@ -100,7 +100,7 @@
                         android:text="ADD"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"
-                        app:cornerRadius="15dp" />
+                        app:cornerRadius="@dimen/button_corner_radius" />
 
 
                 </LinearLayout>

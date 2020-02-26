@@ -25,7 +25,11 @@
         android:id="@+id/nav_address"
         android:name="com.desertmoon.ui.address.AddressFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_address" />
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_nav_address_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_cash_back"
@@ -58,4 +62,9 @@
         android:name="com.desertmoon.ui.discription.ItemDescription"
         android:label="item_description_fragment"
         tools:layout="@layout/item_description_fragment" />
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.desertmoon.ui.address.AddAddressFragment"
+        android:label="add_address_fragment"
+        tools:layout="@layout/add_address_fragment" />
 </navigation>
