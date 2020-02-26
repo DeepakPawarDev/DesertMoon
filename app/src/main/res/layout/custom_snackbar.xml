@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/primaryDarkColor"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="left|center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:alpha="0.90"
+
+            android:src="@drawable/ic_shopping_basket_black_24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/text_view_item_count"
+            android:alpha="0.80"
+
+            android:gravity="left|center"
+            android:fontFamily="@font/open_sans_reguler"
+            android:layout_marginLeft="10dp"
+            android:text="Items in carts"
+            android:textColor="@color/primaryTextColor"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:gravity="right"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="right|center"
+            android:id="@+id/text_view_item_check"
+            android:alpha="0.80"
+
+            android:fontFamily="@font/open_sans_reguler"
+            android:layout_marginLeft="10dp"
+            android:text="CHECKOUT"
+            android:textColor="@color/primaryTextColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="right|center"
+
+            android:alpha="0.80"
+            android:id="@+id/text_view_item_check_out"
+            android:fontFamily="@font/open_sans_reguler"
+            android:layout_marginLeft="10dp"
+            android:text="360"
+            android:drawableLeft="@drawable/ic_rupee_white"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/ic_arrow_forward_check_out_black_24dp"
+            android:textColor="@color/primaryTextColor"/>
+
+</LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
