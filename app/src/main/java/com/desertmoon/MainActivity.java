@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_orders, R.id.nav_address,
-                R.id.nav_cash_back, R.id.nav_contact_us, R.id.nav_share)
+                R.id.nav_cash_back,R.id.nav_notifications, R.id.nav_contact_us, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

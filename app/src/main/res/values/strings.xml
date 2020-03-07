@@ -15,8 +15,9 @@
     <string name="menu_send">Send</string>
     <string name="menu_order">Orders</string>
     <string name="menu_address">Address</string>
-    <string name="menu_cash_back">Cash back</string>
+    <string name="menu_cash_back">Rewards</string>
     <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_notification">Notifications</string>
 
     <string name="title_activity_spash_screen">SpashScreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

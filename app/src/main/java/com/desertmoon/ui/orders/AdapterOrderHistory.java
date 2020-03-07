@@ -1,17 +1,17 @@
 package com.desertmoon.ui.orders;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.fragment.app.FragmentActivity;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import com.desertmoon.R;
-import com.desertmoon.common.Menus;
+        import com.desertmoon.R;
+        import com.desertmoon.common.Menus;
 
-import java.util.List;
+        import java.util.List;
 
 public class AdapterOrderHistory extends RecyclerView.Adapter<com.desertmoon.ui.orders.AdapterOrderHistory.MyViewHolder> {
 
@@ -69,11 +69,11 @@ public class AdapterOrderHistory extends RecyclerView.Adapter<com.desertmoon.ui.
 
 
 
-            }
-
-
         }
 
 
     }
+
+
+}
 

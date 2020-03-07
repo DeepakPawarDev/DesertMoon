@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F5F0F0"
         android:backgroundTint="#FFFFFF"
-        app:cardUseCompatPadding="true"
-        style="@style/Widget.MaterialComponents.CardView"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="5dp"
         app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
 
         >
 
@@ -24,12 +24,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-       <ImageView
-           android:layout_width="match_parent"
-           android:layout_height="200dp"
-           android:scaleType="fitXY"
-           android:src="@drawable/menu3"
-           />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/menu3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/open_sans_reguler"
+                android:maxLines="2"
+                android:text="Details are loading..."
+                android:gravity="left"
+                android:layout_margin="5dp"
+                android:textColor="#000000" />
 
 
         </LinearLayout>

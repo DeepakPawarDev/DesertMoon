@@ -19,7 +19,14 @@
         android:id="@+id/nav_orders"
         android:name="com.desertmoon.ui.orders.OrdersFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_orders" />
+        tools:layout="@layout/fragment_orders" >
+        <action
+            android:id="@+id/action_nav_orders_self"
+            app:destination="@id/nav_orders" />
+        <action
+            android:id="@+id/action_nav_orders_to_notificationFragment"
+            app:destination="@id/nav_notifications" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_address"
@@ -67,4 +74,9 @@
         android:name="com.desertmoon.ui.address.AddAddressFragment"
         android:label="add_address_fragment"
         tools:layout="@layout/add_address_fragment" />
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.desertmoon.ui.notifications.NotificationFragment"
+        android:label="notification_fragment"
+        tools:layout="@layout/notification_fragment" />
 </navigation>

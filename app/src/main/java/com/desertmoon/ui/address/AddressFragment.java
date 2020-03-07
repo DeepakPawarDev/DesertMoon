@@ -16,7 +16,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.desertmoon.R;
+import com.desertmoon.common.UserAddress;
 import com.desertmoon.databinding.FragmentAddressBinding;
+
+import java.util.ArrayList;
 
 public class AddressFragment extends Fragment {
 
@@ -39,8 +42,32 @@ public class AddressFragment extends Fragment {
         });
 
         setListeners();
+        initialize();
 
         return root;
+    }
+
+    private void initialize() {
+
+        ArrayList<UserAddress> userAddresses=new ArrayList<>();
+        UserAddress userAddress=new UserAddress();
+        userAddress.setStrType("Home");
+        userAddress.setStrSector("Sector 7");
+        userAddress.setStrPropertyNumber("502 Karan Chass");
+        userAddress.setStrAddressLineOne("Near PMC cooperative bank");
+        userAddress.setGetStrAddressLineTwo("Airoli");
+
+        userAddresses.add(userAddress);
+        userAddresses.add(userAddress);
+        userAddresses.add(userAddress);
+
+        AdapterAddressList adapterAddressList=new AdapterAddressList(getActivity(),userAddresses);
+
+        binding.setAdapter(adapterAddressList);
+
+
+
+
     }
 
     private void setListeners() {
