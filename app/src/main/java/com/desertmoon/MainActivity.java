@@ -14,11 +14,14 @@ import com.google.android.material.snackbar.Snackbar;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -30,6 +33,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -41,7 +45,7 @@ public class MainActivity extends BaseActivity {
     MainActivityViewModel mainActivityViewModel;
     NavController navController1;
     public static ArrayList<MenuItem> menuItems = new ArrayList<>();
-
+    Snackbar snackbar;
     private static final String TAG = "MainActivity";
 
     @Override
@@ -66,6 +70,7 @@ public class MainActivity extends BaseActivity {
         });
 
         toolBarAndNavigationSetting();
+        setListeners();
 
     }
 
@@ -118,30 +123,43 @@ public class MainActivity extends BaseActivity {
     }
 
 
+
+
     public void showSnack() {
 
 
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
+         snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
         layout.setPadding(0, 0, 0, 0);
         layout.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor));
         View snackView = getLayoutInflater().inflate(R.layout.custom_snackbar, null);
         layout.addView(snackView);
-        snackbar.show();
+        layout.setClickable(true);
 
-        snackView.setOnClickListener(new View.OnClickListener() {
+
+
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Navigation.findNavController(view).navigate(R.id.action_nav_home_to_fragChekout);
-                //  Navigation.findNavController(MainActivity.this, R.id.action_nav_home_to_fragChekout);
-                //NavHostFragment.findNavController(this);
-                // navController1.
-                //  navController1.navigate( R.id.action_nav_home_to_fragChekout);
-                // navController1.
-                System.out.println("*************-");
-                FragChekout fragCheout = new FragChekout();
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragCheout, null).commit();
+
+               // navController1.navigate(R.id.action_nav_home_to_fragChekout);
+                checkoutNavigate(navController1);
             }
+        });
+snackbar.show();
+        //hideSnackCheckout(navController1,snackbar);
+
+
+
+    }
+
+
+    private void setListeners(){
+
+        navController1.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                hideSnackCheckout(navController1,snackbar);            }
         });
 
     }

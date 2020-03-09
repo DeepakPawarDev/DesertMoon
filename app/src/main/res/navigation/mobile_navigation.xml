@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_nav_orders_to_notificationFragment"
             app:destination="@id/nav_notifications" />
+        <action
+            android:id="@+id/action_nav_orders_to_fragChekout"
+            app:destination="@id/fragChekout" />
     </fragment>
 
     <fragment
@@ -39,13 +42,20 @@
         <action
             android:id="@+id/action_nav_address_to_addAddressFragment"
             app:destination="@id/addAddressFragment" />
+        <action
+            android:id="@+id/action_nav_address_to_fragChekout"
+            app:destination="@id/fragChekout" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_cash_back"
         android:name="com.desertmoon.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_tools" >
+        <action
+            android:id="@+id/action_nav_cash_back_to_fragChekout"
+            app:destination="@id/fragChekout" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_contact_us"
@@ -66,12 +76,19 @@
         <action
             android:id="@+id/action_fragOfferItemList_to_itemDescription"
             app:destination="@id/itemDescription" />
+        <action
+            android:id="@+id/action_fragOfferItemList_to_fragChekout"
+            app:destination="@id/fragChekout" />
     </fragment>
     <fragment
         android:id="@+id/itemDescription"
         android:name="com.desertmoon.ui.discription.ItemDescription"
         android:label="item_description_fragment"
-        tools:layout="@layout/item_description_fragment" />
+        tools:layout="@layout/item_description_fragment" >
+        <action
+            android:id="@+id/action_itemDescription_to_fragChekout"
+            app:destination="@id/fragChekout" />
+    </fragment>
     <fragment
         android:id="@+id/addAddressFragment"
         android:name="com.desertmoon.ui.address.AddAddressFragment"
