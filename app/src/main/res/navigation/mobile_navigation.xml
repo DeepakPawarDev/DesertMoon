@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_fragOfferItemList"
             app:destination="@id/fragOfferItemList" />
+        <action
+            android:id="@+id/action_nav_home_to_fragChekout"
+            app:destination="@id/fragChekout" />
     </fragment>
 
     <fragment
@@ -79,4 +82,9 @@
         android:name="com.desertmoon.ui.notifications.NotificationFragment"
         android:label="notification_fragment"
         tools:layout="@layout/notification_fragment" />
+    <fragment
+        android:id="@+id/fragChekout"
+        android:name="com.desertmoon.ui.cart.FragChekout"
+        android:label="frag_chekout"
+        tools:layout="@layout/frag_chekout" />
 </navigation>

@@ -1,130 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    tools:context=".ui.discription.ItemDescription">
+    xmlns:tools="http://schemas.android.com/tools">
 
-<com.google.android.material.card.MaterialCardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:contentPadding="20sp"
-    >
+    <data>
 
+        <variable
+            name="menuItem"
+            type="com.desertmoon.common.MenuItem" />
 
+        <variable
+            name="cartItem"
+            type="com.desertmoon.ui.MainActivityViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.discription.ItemDescription">
 
-        <ImageView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/menu6"
-            android:scaleType="fitXY"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chicken bhuna masala"
-                android:textSize="16sp"
-                android:textColor="#000000"
-                android:alpha=".95"
-                android:fontFamily="@font/open_sans_bold"
-                android:inputType="textCapWords"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_view_menu_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center"
-                android:drawableLeft="@drawable/ic_rupee"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:gravity="left"
-                android:alpha=".90"
-                android:text="399"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+            android:layout_height="wrap_content"
+            app:contentPadding="20sp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:gravity="right"
-                android:layout_height="wrap_content">
-
-
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:src="@drawable/ic_remove_circle_outline_black_24dp"
-                    android:layout_height="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/menu6" />
 
-                    />
-
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/text_view_item_count"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left|center"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/open_sans_reguler"
-                    android:gravity="left"
-                    android:alpha=".90"
-                    android:text="0"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-                <ImageView
-                    android:layout_width="25dp"
-                    android:src="@drawable/ic_add_circle_outline_black_24dp"
-                    android:layout_height="25dp"
+                    android:layout_marginTop="5dp">
 
-                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:alpha=".95"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:inputType="textCapWords"
+                        android:text="Chicken bhuna masala"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_view_menu_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:alpha=".90"
+                        android:drawableLeft="@drawable/ic_rupee"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="left"
+                        android:text="399"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/image_view_minus"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:onClick="@{()->cartItem.removeCartItem(menuItem)}"
+                            android:src="@drawable/ic_remove_circle_outline_black_24dp"
+
+                            />
+
+                        <TextView
+                            android:id="@+id/text_view_item_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:alpha=".90"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/open_sans_reguler"
+                            android:gravity="left"
+                            android:text="0"
+                            android:textColor="#000000"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/image_view_plus"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:onClick="@{() -> cartItem.addCartItem(menuItem)}"
+                            android:src="@drawable/ic_add_circle_outline_black_24dp"
+
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha=".95"
+                        android:fontFamily="@font/open_sans_reguler"
+                        android:text="Chicken bhuna masala with paratha and basmati rise, one Gulabjanum"
+
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chicken bhuna masala with paratha and basmati rise, one Gulabjanum"
-                android:textSize="14sp"
-                android:textColor="#000000"
-
-                android:alpha=".95"
-                android:fontFamily="@font/open_sans_reguler"
-               />
-
-        </LinearLayout>
-
-
-
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-
-
-</com.google.android.material.card.MaterialCardView>
-</LinearLayout>
+</layout>

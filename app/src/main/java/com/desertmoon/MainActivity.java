@@ -2,18 +2,21 @@ package com.desertmoon;
 
 import android.os.Bundle;
 
+import com.desertmoon.common.MenuItem;
 import com.desertmoon.databinding.ActivityMainBinding;
 import com.desertmoon.ui.BaseActivity;
-import com.desertmoon.ui.MainActivityCardViewModel;
+import com.desertmoon.ui.MainActivityViewModel;
+import com.desertmoon.ui.cart.FragChekout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -24,33 +27,51 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     ActivityMainBinding binding;
+    MainActivityViewModel mainActivityViewModel;
+    NavController navController1;
+    public static ArrayList<MenuItem> menuItems = new ArrayList<>();
 
-    MainActivityCardViewModel mainActivityCardViewModel;
-
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_main);
+        // setContentView(R.layout.activity_main);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mainActivityCardViewModel = ViewModelProviders.of(this).get(MainActivityCardViewModel.class);
+        mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
         binding.setLifecycleOwner(this);
-        mainActivityCardViewModel.mutableLiveDataCardItem.observe(this, new Observer<Integer>() {
+        mainActivityViewModel.mutableLiveDataCardItem.observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
-                showSnack();
+                if (integer == 1) {
+                    Log.i(TAG, "added");
+                    showSnack();
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "Error in adding item in a cart, please try again", Toast.LENGTH_LONG).show();
+                }
             }
         });
+
+        toolBarAndNavigationSetting();
+
+    }
+
+
+    private void toolBarAndNavigationSetting() {
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
@@ -70,15 +91,15 @@ public class MainActivity extends BaseActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_orders, R.id.nav_address,
-                R.id.nav_cash_back,R.id.nav_notifications, R.id.nav_contact_us, R.id.nav_share)
+                R.id.nav_cash_back, R.id.nav_notifications, R.id.nav_contact_us, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        navController1 = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController1, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController1);
+
 
     }
-
 
 
     @Override
@@ -87,7 +108,6 @@ public class MainActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
 
 
     @Override
@@ -103,11 +123,26 @@ public class MainActivity extends BaseActivity {
 
         Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
-        layout.setPadding(0,0,0,0);
+        layout.setPadding(0, 0, 0, 0);
         layout.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor));
         View snackView = getLayoutInflater().inflate(R.layout.custom_snackbar, null);
         layout.addView(snackView);
         snackbar.show();
+
+        snackView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigation.findNavController(view).navigate(R.id.action_nav_home_to_fragChekout);
+                //  Navigation.findNavController(MainActivity.this, R.id.action_nav_home_to_fragChekout);
+                //NavHostFragment.findNavController(this);
+                // navController1.
+                //  navController1.navigate( R.id.action_nav_home_to_fragChekout);
+                // navController1.
+                System.out.println("*************-");
+                FragChekout fragCheout = new FragChekout();
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, fragCheout, null).commit();
+            }
+        });
 
     }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "38056050753",
+    "firebase_url": "https://desertmoon-a51f9.firebaseio.com",
+    "project_id": "desertmoon-a51f9",
+    "storage_bucket": "desertmoon-a51f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38056050753:android:abfad63f2a0a2ce57b86c0",
+        "android_client_info": {
+          "package_name": "com.desertmoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38056050753-nnf435dht03h6piuol7isk2433kg71al.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL3sAF1Jv5mv67uNHEUzzZM5aLBM2oaQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38056050753-nnf435dht03h6piuol7isk2433kg71al.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

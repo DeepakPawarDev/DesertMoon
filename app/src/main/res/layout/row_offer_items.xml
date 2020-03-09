@@ -6,7 +6,10 @@
 
         <variable
             name="cartItem"
-            type="com.desertmoon.ui.MainActivityCardViewModel" />
+            type="com.desertmoon.ui.MainActivityViewModel" />
+        <variable
+            name="menuItem"
+            type="com.desertmoon.common.MenuItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -64,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans_reguler"
-                android:text=""
+                android:text="@{menuItem.strTitleDescription}"
                 android:textSize="12sp" />
 
             <LinearLayout
@@ -81,7 +84,7 @@
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/open_sans_bold"
                     android:gravity="left"
-                    android:text="399"
+                    android:text="@{String.valueOf(menuItem.dblPrice)}"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -96,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="#DC151769"
                         android:fontFamily="@font/open_sans_reguler"
-                        android:onClick="@{() -> cartItem.addCartItem()}"
+                        android:onClick="@{() -> cartItem.addCartItem(menuItem)}"
                         android:text="ADD"
                         android:textColor="#FFFFFF"
                         android:textSize="12sp"

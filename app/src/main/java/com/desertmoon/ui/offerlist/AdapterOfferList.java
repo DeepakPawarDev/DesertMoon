@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,10 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.desertmoon.R;
-import com.desertmoon.common.Menus;
-import com.desertmoon.databinding.RowHomeMenuBinding;
+import com.desertmoon.common.MenuItem;
 import com.desertmoon.databinding.RowOfferItemsBinding;
-import com.desertmoon.ui.MainActivityCardViewModel;
+import com.desertmoon.ui.MainActivityViewModel;
 
 import java.util.List;
 
@@ -31,17 +29,17 @@ public class AdapterOfferList extends RecyclerView.Adapter<AdapterOfferList.MyVi
 
     private static final String TAG = "AdapterOfferList";
     private FragmentActivity context;
-    private List<Menus> listEditText;
+    private List<MenuItem> listEditText;
     private LayoutInflater mInflater;
     RowOfferItemsBinding binding;
-MainActivityCardViewModel mainActivityCardViewModel;
+MainActivityViewModel mainActivityViewModel;
     NavController navController;
 
-    public AdapterOfferList(FragmentActivity context, List<Menus> listEditText) {
+    public AdapterOfferList(FragmentActivity context, List<MenuItem> listEditText) {
         this.context = context;
         this.listEditText = listEditText;
         this.mInflater = LayoutInflater.from(context);
-        mainActivityCardViewModel= ViewModelProviders.of(context).get(MainActivityCardViewModel.class);
+        mainActivityViewModel = ViewModelProviders.of(context).get(MainActivityViewModel.class);
 
 
     }
@@ -52,7 +50,7 @@ MainActivityCardViewModel mainActivityCardViewModel;
         binding = DataBindingUtil.inflate(mInflater, R.layout.row_offer_items, viewGroup, false);
         View view = binding.getRoot();
         binding.setLifecycleOwner(context);
-        binding.setCartItem(mainActivityCardViewModel);
+        binding.setCartItem(mainActivityViewModel);
      AdapterOfferList.MyViewHolder holder = new AdapterOfferList.MyViewHolder(view);
 
         return holder;
@@ -61,7 +59,7 @@ MainActivityCardViewModel mainActivityCardViewModel;
     @Override
     public void onBindViewHolder(@NonNull AdapterOfferList.MyViewHolder myViewHolder, int i) {
 
-        Menus beneficiary = listEditText.get(i);
+        MenuItem beneficiary = listEditText.get(i);
         myViewHolder.setData(beneficiary);
 
     }
@@ -93,7 +91,7 @@ MainActivityCardViewModel mainActivityCardViewModel;
             });
         }
 
-        public void setData(final Menus beneficiary) {
+        public void setData(final MenuItem beneficiary) {
 
 
             try {
