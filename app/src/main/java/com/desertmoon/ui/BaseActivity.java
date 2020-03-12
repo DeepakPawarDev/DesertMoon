@@ -22,6 +22,8 @@ public class BaseActivity extends AppCompatActivity {
     //Navigate to checkout from specific nav controller
     public void checkoutNavigate(NavController navController){
 
+        
+
         switch (navController.getCurrentDestination().getId()) {
 
 

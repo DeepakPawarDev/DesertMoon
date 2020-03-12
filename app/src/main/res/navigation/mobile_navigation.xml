@@ -104,4 +104,14 @@
         android:name="com.desertmoon.ui.cart.FragChekout"
         android:label="frag_chekout"
         tools:layout="@layout/frag_chekout" />
+    <fragment
+        android:id="@+id/userLogin"
+        android:name="com.desertmoon.ui.login.UserLogin"
+        android:label="frag_user_login"
+        tools:layout="@layout/frag_user_login" />
+    <fragment
+        android:id="@+id/OTPVerification"
+        android:name="com.desertmoon.ui.login.OTPVerification"
+        android:label="frag_otpverification"
+        tools:layout="@layout/frag_otpverification" />
 </navigation>
