@@ -1,5 +1,6 @@
 package com.desertmoon.ui.cart;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -13,10 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.desertmoon.R;
+import com.desertmoon.common.Menus;
+import com.desertmoon.databinding.FragChekoutBinding;
+
+import java.util.ArrayList;
 
 public class FragChekout extends Fragment {
 
     private FragChekoutViewModel mViewModel;
+    FragChekoutBinding binding;
 
     public static FragChekout newInstance() {
         return new FragChekout();
@@ -25,7 +31,24 @@ public class FragChekout extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_chekout, container, false);
+        binding= DataBindingUtil.inflate(inflater,R.layout.frag_chekout, container, false);
+        setAdapter();
+        return binding.getRoot();
+    }
+
+    private void setAdapter() {
+        ArrayList<Menus> menusArrayList=new ArrayList<>();
+
+        Menus menu=new Menus();
+
+        menusArrayList.add(menu);
+        menusArrayList.add(menu);
+        menusArrayList.add(menu);
+
+
+        AdapterCartList adapterCartList=new AdapterCartList(getActivity(),menusArrayList);
+        binding.setMyAdapter(adapterCartList);
+
     }
 
     @Override

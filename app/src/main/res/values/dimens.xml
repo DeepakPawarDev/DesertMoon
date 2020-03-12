@@ -12,4 +12,8 @@
     <dimen name="button_corner_radius">15dp</dimen>
     <dimen name="input_frag_button_margin_top">20dp</dimen>
     <dimen name="inout_frag_title_text_size">18sp</dimen>
+    <dimen name="frag_padding">20dp</dimen>
+    <dimen name="frag_title_text_bottom_margin">10dp</dimen>
+    <dimen name="frag_sub_title_text_size">16sp</dimen>
+    <dimen name="frag_text_normal_size">14sp</dimen>
 </resources>
