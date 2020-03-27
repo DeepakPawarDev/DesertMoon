@@ -103,12 +103,20 @@
         android:id="@+id/fragChekout"
         android:name="com.desertmoon.ui.cart.FragChekout"
         android:label="frag_chekout"
-        tools:layout="@layout/frag_chekout" />
+        tools:layout="@layout/frag_chekout" >
+        <action
+            android:id="@+id/action_fragChekout_to_userLogin"
+            app:destination="@id/userLogin" />
+    </fragment>
     <fragment
         android:id="@+id/userLogin"
         android:name="com.desertmoon.ui.login.UserLogin"
         android:label="frag_user_login"
-        tools:layout="@layout/frag_user_login" />
+        tools:layout="@layout/frag_user_login" >
+        <action
+            android:id="@+id/action_userLogin_to_OTPVerification"
+            app:destination="@id/OTPVerification" />
+    </fragment>
     <fragment
         android:id="@+id/OTPVerification"
         android:name="com.desertmoon.ui.login.OTPVerification"

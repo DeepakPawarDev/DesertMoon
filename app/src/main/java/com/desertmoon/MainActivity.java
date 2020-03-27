@@ -123,12 +123,10 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
-
     public void showSnack() {
 
 
-         snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
+        snackbar = Snackbar.make(findViewById(R.id.coordinate_layout), "", Snackbar.LENGTH_INDEFINITE);
         Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
         layout.setPadding(0, 0, 0, 0);
         layout.setBackgroundColor(ContextCompat.getColor(this, R.color.primaryDarkColor));
@@ -137,29 +135,28 @@ public class MainActivity extends BaseActivity {
         layout.setClickable(true);
 
 
-
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-               // navController1.navigate(R.id.action_nav_home_to_fragChekout);
+                // navController1.navigate(R.id.action_nav_home_to_fragChekout);
                 checkoutNavigate(navController1);
             }
         });
-snackbar.show();
+        snackbar.show();
         //hideSnackCheckout(navController1,snackbar);
-
 
 
     }
 
 
-    private void setListeners(){
+    private void setListeners() {
 
         navController1.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                hideSnackCheckout(navController1,snackbar);            }
+                hideSnackCheckout(navController1, snackbar);
+            }
         });
 
     }

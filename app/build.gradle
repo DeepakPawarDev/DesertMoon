@@ -47,4 +47,20 @@ dependencies {
     //Firebase dependencies
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
 
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+
+    //Retrofit
+    implementation group: 'commons-logging', name: 'commons-logging', version: '1.2'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+
+
+    
+
 }

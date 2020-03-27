@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,14 +9,18 @@
             name="myAdapter"
             type="com.desertmoon.ui.cart.AdapterCartList" />
 
+        <variable
+            name="viewModel"
+            type="com.desertmoon.ui.cart.FragChekoutViewModel" />
+
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#FFFFFF"
+        android:orientation="vertical"
         tools:context=".ui.cart.FragChekout">
 
         <LinearLayout
@@ -55,11 +59,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:alpha="0.95"
-                        android:visibility="gone"
                         android:fontFamily="@font/open_sans_reguler"
                         android:text="Order Detail"
                         android:textColor="#000000"
-                        android:textSize="@dimen/frag_sub_title_text_size" />
+                        android:textSize="@dimen/frag_sub_title_text_size"
+                        android:visibility="gone" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -99,15 +103,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:alpha="0.90"
                             android:fontFamily="@font/open_sans_bold"
                             android:text="Items in cart"
                             android:textColor="#000000"
-                            android:alpha="0.90"
                             android:textSize="@dimen/frag_sub_title_text_size" />
 
                     </LinearLayout>
@@ -117,10 +122,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
-                        android:background="#FFFFFF"
-
                         android:layout_marginRight="10dp"
+
                         android:adapter="@{myAdapter}"
+                        android:background="#FFFFFF"
                         android:nestedScrollingEnabled="false"
                         android:scrollbars="none"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
@@ -138,12 +143,13 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
+                    android:id="@+id/button_checkout"
                     android:layout_height="60dp"
-                    android:elevation="5dp"
-                    app:cornerRadius="0dp"
-                    android:textSize="18sp"
                     android:alpha="0.90"
-                    android:text="CONFIRM ORDER" />
+                    android:elevation="5dp"
+                    android:text="CONFIRM ORDER"
+                    android:textSize="18sp"
+                    app:cornerRadius="0dp" />
 
             </LinearLayout>
 
